@@ -1,0 +1,505 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AGUJournalTemplate.tex: this template file is for articles formatted with LaTeX
+%
+% This file includes commands and instructions
+% given in the order necessary to produce a final output that will
+% satisfy AGU requirements, including customized APA reference formatting.
+%
+% You may copy this file and give it your
+% article name, and enter your text.
+%
+% guidelines an d troubleshooting are here: 
+
+%% To submit your paper:
+\documentclass[draft]{agujournal2019}
+\usepackage{url} %this package should fix any errors with URLs in refs.
+\usepackage{lineno}
+\usepackage[inl
+ine]{trackchanges} %for better track changes. finalnew option will compile document with changes incorporated.
+\usepackage{soul}
+\usepackage{natbib}
+\usepackage{bm}
+\usepackage{amsfonts}
+\usepackage[T1]{fontenc}
+\linenumbers
+%%%%%%%
+% As of 2018 we recommend use of the TrackChanges package to mark revisions.
+% The trackchanges package adds five new LaTeX commands:
+%
+%  \note[editor]{The note}
+%  \annote[editor]{Text to annotate}{The note}
+%  \add[editor]{Text to add}
+%  \remove[editor]{Text to remove}
+%  \change[editor]{Text to remove}{Text to add}
+%
+% complete documentation is here: http://trackchanges.sourceforge.net/
+%%%%%%%
+
+\draftfalse
+
+
+\journalname{JGR: Oceans}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  TITLE
+%
+% (A title should be specific, informative, and brief. Use
+% abbreviations only if they are defined in the abstract. Titles that
+% start with general keywords then specific terms are optimized in
+% searches)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Example: \title{This is a test title}
+
+%\title{Modeling melting in ice-shelf basal channels: sensitivity to channel depth, ice shelf slope, and vertical model resolution}
+% \title{High-resolution modeling of melting and ocean processes in ice-shelf basal channels}
+\title{Sensitivity of ice-shelf basal channel melting to channel depth, ice shelf slope, and vertical model resolution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  AUTHORS AND AFFILIATIONS
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Authors are individuals who have significantly contributed to the
+% research and preparation of the article. Group authors are allowed, if
+% each author in the group is separately identified in an appendix.)
+
+% List authors by first name or initial followed by last name and
+% separated by commas. Use \affil{} to number affiliations, and
+% \thanks{} for author notes.
+% Additional author notes should be indicated with \thanks{} (for
+% example, for current addresses).
+
+% Example: \authors{A. B. Author\affil{1}\thanks{Current address, Antartica}, B. C. Author\affil{2,3}, and D. E.
+% Author\affil{3,4}\thanks{Also funded by Monsanto.}}
+
+\authors{Josu\'e Mart\'inez-Moreno\affil{1}, Paul R. Holland\affil{1}, Bethan L. Wynne-Cattanach\affil{2},  John R. Taylor\affil{2}, and Katie Lowery\affil{1,3}}
+
+%% Add katie here, she has helped with some computations and discussions.
+
+\affiliation{1}{British Antarctic Survey, Cambridge, UK}
+\affiliation{2}{University of Cambridge, Cambridge, United Kingdom}
+\affiliation{3}{School of Earth and Environment, University of Leeds, Leeds, UK}
+
+%(repeat as many times as is necessary)
+
+% Corresponding author mailing address and e-mail address:
+
+% (include name and email addresses of the corresponding author.  More
+% than one corresponding author is allowed in this LaTeX file and for
+% publication; but only one corresponding author is allowed in our
+% editorial system.)
+
+% Example: \correspondingauthor{First and Last Name}{email@address.edu}
+
+\correspondingauthor{Josu\'e Mart\'inez-Moreno}{josnez@bas.ac.uk}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% KEY POINTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  List up to three key points (at least one is required)
+%  Key Points summarize the main points and conclusions of the article
+%  Each must be 140 characters or fewer with no special characters or punctuation and must be complete sentences
+
+\begin{keypoints}
+\item Ice-shelf basal channel melt depends on channel depth, background ice-shelf slope, and vertical model resolution.
+\item Channel depth and background ice-shelf slope increase melt rates by 30-400\% due to enhanced transport of warm waters towards the ice.
+\item Higher vertical resolution results in less asymmetry in melt rates between channel flanks due to improved representation of the Ekman layer.
+
+\end{keypoints}
+
+% \begin{keywords}
+% \item Ice-shelf
+% \item Channels
+% \item Melt rates
+% \end{keywords}
+
+% \textbf{Length requirements}
+% \begin{itemize}
+% \item Abstract: 243 words out of 250 words
+% \item \textbf{Plain language summary: 217 words out of 250 words}
+% \item Current word count: 7481
+% \item Current \# of figures: 13 + 6 supplementary
+% \item Total units: 15 (word count) + 13 (figures) = 28 out of 25
+% \end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  ABSTRACT and PLAIN LANGUAGE SUMMARY
+%
+% A good Abstract will begin with a short description of the problem
+% being addressed, briefly describe the new data or analyses, then
+% briefly states the main conclusion(s) and how they are supported and
+% uncertainties.
+
+% The Plain Language Summary should be written for a broad audience,
+% including journalists and the science-interested public, that will not have 
+% a background in your field.
+%
+% A Plain Language Summary is required in GRL, JGR: Planets, JGR: Biogeosciences,
+% JGR: Oceans, G-Cubed, Reviews of Geophysics, and JAMES.
+% see http://sharingscience.agu.org/creating-plain-language-summary/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% \begin{abstract} starts the second page
+
+\begin{abstract}
+Channels in the base of Antarctic ice shelves modulate melting patterns and freshwater delivery to the ocean. The channel geometry plays a key role in shaping the circulation below the ice shelf. Using idealized ice shelf-ocean channel simulations, we explore the sensitivity of ice-shelf basal channel melt rates to channel depth, background ice-shelf slope, and vertical model resolution. First, we consider the well-studied case of no channel (planar slope) as a baseline for comparison. Increasing the channel depth or the background slope results in larger melt rates due to larger vertical ocean heat fluxes towards the ice, which has implications for ice-shelf stability. The channelized flow is ageostrophic, in a balance between momentum advection and pressure gradient forces. At high vertical resolutions ($2\,\mathrm{m}$), the melt rates are similar on the two channel flanks, but for different reasons; strong velocities in the Ekman layer enhance melting on the non-Coriolis-favored flank while relatively high temperature enhances melting on the Coriolis-favored flank. Only at coarser vertical resolution of $8\,\mathrm{m}$, unable to represent the Ekman layer, do we see enhanced melting only on the Coriolis-favored flank as described in previous studies. Resolving the ice shelf geometry, including the effect of channels and slopes, has a significant impact on the magnitude of the melt rates (up to 400\%) for a fixed ocean temperature. Our results showcase the importance of capturing fine-scale processes to accurately simulate the melt patterns in basal channels and their contribution to ice shelf-ocean interactions. 
+\end{abstract}
+
+\section*{Plain Language Summary}
+
+Ice shelves are floating extensions of ice sheets, and have grooves called basal channels carved into their base. These channels play an important role in controlling how the ice melts and how much freshwater enters the ocean. Using computer simulations, we study how the channel shape and the model resolution affect melt rates. We first studied an ice base with no channel, where water flow is set by a balance between pressure differences and Earth’s rotation. When a channel is added, this balance breaks down, and the flow is balanced by pressure differences and changes in the current speeds within the channel. High‑resolution models show similar melting on both sides of the channel because velocities near the ice enhance melting on one side while warmer water melts the other. Coarse models, which cannot represent this flow close to the ice, show stronger melting on one side, reflecting limitations of earlier studies. Deeper or steeper channels can increase melting up to 4 times. Channels are important to how an ice shelf might fall apart when it is melted by the ocean. Capturing fine‑scale channel details is crucial to predict  Antarctic ice shelves melt, and how they may contribute to sea‑level rise.
+
+% Enter your Plain Language Summary here or delete this section.
+% Here are instructions on writing a Plain Language Summary: 
+% https://www.agu.org/Share-and-Advocate/Share/Community/Plain-language-summary
+
+\section{Introduction}
+
+Ice shelves are floating extensions of ice sheets that act to restrain the flow of the grounded ice (i.e., buttressing; \citealt{Dupont_iceshelf_2005}). The Antarctic Ice Sheet holds approximately 70\% of the Earth's freshwater. Between 1992 and 2020, global sea level rose by $7.4\pm1.5\,\mathrm{mm}$ due to the Antarctic Ice Sheet loss \citep{Otosoka_sheets_2023} and there is a potential contribution from the West Antarctic Ice Sheet to global mean sea level of $\sim4.3$ meters, of which $\sim80\%$ is grounded below sea level \citep{Fretwell_Bedmap2_2013}. Among the most rapidly evolving ice shelves, Pine Island Glacier's (PIG) retreat and thinning have accelerated since the 1990s, and is one of the largest contributors to global mean sea-level rise among Antarctic glaciers in recent decades \citep{Mouginot_Amundsen_2014, Rignot_Antarctic_2019, Joughin_PineIsland_2021}. PIG retreat is an example of marine ice sheet instability and continues to retreat towards a deeper basin below sea level, exposing more ice to the warm deep ocean and thereby enhancing basal melting \citep{Reed_PineIsland_2024}. This retreat is thought to be driven by changes in the volume of relatively warm Circumpolar Deep Water onto the continental shelf \citep{Dutrieux_PineIsland_2014}. Further retreat of PIG is likely to expose more ice at depth to warm Circumpolar Deep Water, enhancing melting and further retreat. Consequently, understanding the current state of PIG has profound implications for our ability to predict future sea-level rise.
+
+The melt rates of an ice shelf are controlled by the intrusion of warm water masses (above the local freezing point) and the geometry of the ice shelf. The first depends on the type of cavity: cold and warm cavities. Each cavity type has distinct circulation and melting  patterns dependent on the water masses intruding into the cavity \citep{Si_Antarctic_2024, Hyogo_Ocean_2024, Jourdain_Ocean_2017}. For example, PIG corresponds to a warm cavity, where the far-field ocean temperature can be up to 4°C above the freezing point, matching the Circumpolar Deep Water (CDW) mass properties \citep{Jacobs_Stronger_2011}. In contrast, Fimbul Ice Shelf, a cold cavity, is characterized by the presence of shelf waters ($-1.9^\circ \mathrm{C} - -1.6^\circ \mathrm{C}$; \citealt{Hattermann_Fimbul_2012}). Secondly, the geometry of the ice shelf also plays a key role in controlling the melt rates \citep{Little_IceShelf_2009}, and it features terraces, crevasses, rifts, and basal channels \citep{Rosevear_Shelves_2025}. 
+
+Basal channels are common features observed in ice shelves in both Antarctica and Greenland \citep{Zinck_channelized_2026, Ally_channel_2024, Wahlin_Swirls_2024, Zeising_Greenland_2024, Rignot_Channelized_2008}. These channels consist of elongated, sloping regions of thin ice, typically a few kilometers wide, which often extend from the grounding line to the ice front \citep{Dutrieux_PineIsland_2013}. 
+\citet{Shean_IceShelf_2019} observed that melt rates are 10 times larger within the channels near the grounding line than over the main shelf, and highlighted the heterogeneity of melting patterns in and along basal channels. Under the influence of the Coriolis force, the flow underneath a basal channel is expected to be characterized by a jet banked against the Coriolis-favored flank (the right flank in the Southern Hemisphere, facing towards thicker ice), with this flank experiencing enhanced melting, according to previous modeling studies \citep{Cheng_Channel_2024, Millgate_BasalChannels_2013, Gladish_basal_2012}. More recently, \citet{Lowery_PIG_2025} showed from satellite observations that the Coriolis-favored flank experienced 50\% more melt in a large channel near the grounding line of PIG, and \citet{Zinck_channelized_2026} highlighted a substantial underestimation of channelized melting using stereoscopic images and satellite altimetry for PIG, with implications on the stability of the ice shelf. The substantial melt occurring within basal channels makes them a critical feature of ice shelves that requires further investigation.
+
+The presence of channels modulates ice-shelf processes, including the ice-shelf flow velocity, and the distribution of both surface and basal crevasses \citep{Lilien_MeltChannel_2025, Alley_channel_2022, Wearing_Basal_2021, Vaughan_channels_2012}. Alongside these ice-shelf processes, ocean-driven processes enhance melting in the presence of subglacial discharge and along the Coriolis‑favored channel flank, while the channel geometry further modulates ocean–ice interactions \citep{Lowery_Drivers_2026, Gladish_basal_2012, Millgate_BasalChannels_2013}. In particular, a three-dimensional ocean modeling study at relatively high resolution, \citet{Cheng_Channel_2024}, showed that the depth and width of the channels influence the melting amplification and meltwater transport, with deeper channels resulting in stronger meltwater plumes and enhanced melt. Moreover, they qualitatively described the circulation within channels and showed a dependence of melt rates on vertical resolution for a wider and shallower channel with a shallow ice-shelf slope ($4\,\mathrm{km}$ width, $60\,\mathrm{m}$ depth, and $<0.63^\circ$, respectively), unlike those observed in PIG. Here, we expand the parameter space to include the steeper channel geometries observed in PIG \citep{Lowery_PIG_2025} and examine the physical mechanisms controlling the melt rates for different channel depths, vertical resolutions, and ice-shelf slopes.
+
+Previous studies commonly parametrize melt rates by using the 3-equation parametrization \citep{Holland_Modeling_1999} in which the melt rate is proportional to the thermal driving and friction velocity, which in turn depend on the vertical resolution of the model. This parametrization is intended to represent turbulent mixing across a boundary layer that is itself embedded within an Ekman layer beneath the ice \citep{Anselin_IceBase_2024, Vreugdenhil_Ocean_2022, Holland_Modeling_1999}. \citet{Patmore_Turbulence_2023} noted that in order to resolve the Ekman layers in a sloping ice shelf, a vertical resolution higher than $4\,\mathrm{m}$ is required. Therefore, here we revisit this idea, but for idealized ice shelf-ocean channel simulations to explore the sensitivity of basal channel melting to vertical model resolution. 
+
+The manuscript is structured as follows: Section \ref{Sec:methods} describes the model configuration and the different simulations performed. Section \ref{Sec:sec3.1} presents the physical mechanisms at play in the presence of a channel. Section \ref{Sec:sec3.2} describes the impact of vertical resolution on the resolved dynamics and melt rates. Section \ref{Sec:sec3.3} details the response of the melt rates to different channel depths and ice shelf slopes. Finally, in Section \ref{Sec:discussion}, we discuss the implications of our findings and future improvements for regional and global models.
+
+\section{Methods}
+\label{Sec:methods}
+
+To investigate the melt rates in ice shelf basal channels, we conducted a series of numerical simulations using MITgcm. Our configuration builds upon the configuration described in \citet{Patmore_Turbulence_2023}, in which the ice shelf is represented by a planar, sloping ice base. We consider a single channel that runs up the center of the sloping ice base, and use periodic boundary conditions on all sides. However, in order to represent a sloping periodic domain within the standard Cartesian MITgcm model framework, we need to modify the boundary conditions, following \cite{Patmore_Turbulence_2023}.
+
+In MITgcm, the domain is divided into processor tiles, each surrounded by a `halo' of model grid cells responsible for passing information between the different processor tiles through the Message Passing Interface (MPI) communication. At the domain edge, the periodic boundary conditions populate the outer halos by wrapping information from the opposite side of the domain, such that the halo cells on the outer right boundary are assigned the same values as the leftmost interior cells, and vice versa for the left boundary. This horizontal wrapping is illustrated by the magenta and green grids in Fig.~\ref{fig:fig1}a, where the right halo (magenta) is populated by the first two interior cells on the left boundary (also shown in magenta), and the left halo (green) is populated using the rightmost two interior cells. 
+Note that a classical periodic grid does not allow a sloping domain and results in a step within the outer halos of the simulation (Fig.~\ref{fig:fig1}a).
+
+In our simulations with a sloping ice base, the standard horizontal wrapping of the outer MPI halos is preserved, however, to ensure periodicity, we introduce two modifications. First, the ice topography and solid lower boundary are extrapolated within the outer halos to ensure that ocean grid points in the halos match the ice topography. Second, the outer MPI halos are vertically shifted. A schematic of this vertical shift is shown in Fig.~\ref{fig:fig1}b, where the halos are shifted vertically by the integer $\epsilon=2$. On the right side of the channel, the halos are shifted by adding $\epsilon$ to the vertical index ($k$), while on the left side, $\epsilon$ is subtracted. For the domain size of our simulations, $\epsilon$ varies in the $2\,\textrm{m}$ vertical resolution case from $\epsilon=16$ to  $\epsilon=64$ for background ice-shelf slopes of $0.5^\circ$ and  $2^\circ$.
+The adjacent grid point in the halo next to the domain is required to match the domain and not have partial cells for the model to be stable. 
+
+\begin{figure}
+      \includegraphics[width=1\linewidth]{./Fig_1_schematic_periodic_h.pdf}
+      \caption{Schematic of the a) classical periodic grid  and b) shifted periodic grid for a z-level model improving the implementation by \citet{Patmore_Turbulence_2023}. Shading represents the ice topography (blue), the solid lower boundary (gray), and the communication cells of the periodic boundary (orange). Dashed lines represent the grid layout. The ocean boundary is marked by the solid black line, and it utilizes partial cells to better represent the slopes. In a), the mapping in the halos matches the vertical grid cells shown in black arrows ($k+n$ maps to $k+n$ where $n\in\mathbb{Z}$). In b), the mapping in the halos is shifted, meaning that $k+n$ maps to $k+n\pm\epsilon$, where $\epsilon\in\mathbb{Z}$ matching the number of grid points required by the slope to be periodic (red arrows; $+$ in the right halo and $-$ in the left halo). For example, in the diagram above, $\epsilon=2$, thus $k$ in the right halo maps to $k+2$ in the left halo (note k increases with depth).}
+      \label{fig:fig1}
+\end{figure}
+
+The model domain extends horizontally $3.6\,\mathrm{km}$ in the x direction (up-slope), $9.6\,\mathrm{km}$ in the y direction (across-slope), with a horizontal resolution of $60\,\mathrm{m}$, and a vertical extent of $512\,\mathrm{m}$. The model is initialized at rest with a constant salinity of $34.5\,\mathrm{psu}$ and temperature matching the freezing point at $300\,\mathrm{dbar}$ plus the thermal driving of each simulation. Restoring is applied in the bottom $76\,\mathrm{m}$ of the domain using a hyperbolic-tangent profile to restore to the initial temperature and salinity and thus allow the simulation to reach a quasi-steady state. 
+
+To explore the parameter space, we vary the vertical resolution ($2\,\mathrm{m}$, $4\,\mathrm{m}$, and $8\,\mathrm{m}$), the depth of the ice shelf basal channels ($0\,\mathrm{m}$, $20\,\mathrm{m}$, $40\,\mathrm{m}$, $60\,\mathrm{m}$, $80\,\mathrm{m}$, $120\,\mathrm{m}$, and $160\,\mathrm{m}$), the background slope of the ice shelf ($0.5^\circ$, $1^\circ$, $1.5^\circ$, and $2^\circ$), and the thermal driving ($0.1^\circ \mathrm{C}$, $0.5^\circ \mathrm{C}$, $1^\circ \mathrm{C}$, $2^\circ \mathrm{C}$). These parameters are chosen to match the observed geometry of Pine Island Glacier ice shelf \citep{Lowery_PIG_2025}, which exhibits two main basal channels with widths of $\sim2\,\mathrm{km}$, depths of $80\,\mathrm{m}$ and $160\,\mathrm{m}$, background ice-shelf slopes of $0.5^\circ$ far from the grounding line and slopes of $\sim2^\circ$ near the grounding line (Supplementary Fig.~\ref{fig:Sfig1}), and thermal driving of $2^\circ \mathrm{C}$. In total, 104 simulations were performed to explore the parameter space for channels of $2\,\mathrm{km}$ width (See Fig.~\ref{fig:fig2}), all channel depths were run for all thermal drivings for the vertical resolutions of $8\,\mathrm{m}$ and $4\,\mathrm{m}$ with a background ice-shelf slope of $1.5^\circ$. Due to computational constraints, the $2\,\mathrm{m}$ vertical resolution simulations were only performed for the $0\,\mathrm{m}$, $80\,\mathrm{m}$, and $160\,\mathrm{m}$ channel depths for all thermal drivings with a background ice-shelf slope of $1.5^\circ$. Finally, all vertical resolutions of the $80\,\mathrm{m}$ channel depth were run for the other three background ice-shelf slopes ($0.5^\circ$, $1^\circ$, and $2^\circ$). These configurations allow us to isolate the effects of vertical grid resolution, channel depth, background ice-shelf slopes, and thermal driving on the melt rates within an ice shelf. 
+
+A quadratic drag boundary condition is applied at the ice base. The vertical viscosity and diffusivity are scaled linearly with the vertical resolution. For example, for the $8\,\mathrm{m}$ resolution we use a value of $8\times10^{-4}\,\mathrm{m^2 s^{-1}}$, while for the $2\,\mathrm{m}$ resolution we use a value of $2\times10^{-4}\,\mathrm{m^2 s^{-1}}$. These values are in agreement with the anisotropy of the model configuration, since the horizontal viscosity and diffusivity are set to a value of $6\times10^{-3}\,\mathrm{m^2 s^{-1}}$ for all configurations. The time step is set to 4 seconds. All simulations were run for 45 days, reaching a quasi-steady state after 30 days, with the last 15 days used for analysis.
+
+\begin{figure}
+    \includegraphics[width=1\linewidth]{./Fig_2_methods.png}
+    \caption{$u$ velocity of model configurations used to explore the parameter space of vertical resolution, channel depth, thermal driving, and background ice-shelf slope. Each column corresponds to a different vertical resolution, while each row corresponds to a different channel depth. Note that all simulations were run using four different thermal drivings ($0.1^\circ \mathrm{C}$, $0.5^\circ \mathrm{C}$, $1^\circ \mathrm{C}$, and $2^\circ \mathrm{C}$) with a slope of $1.5^\circ$. Additionally, 3 additional background ice-shelf slopes were run for the $80\,\mathrm{m}$ channel depth ($0.5^\circ$, $1^\circ$, and $2^\circ$).}
+    \label{fig:fig2}
+\end{figure}
+
+The model solves the non-hydrostatic Boussinesq equations.
+% In a quasi-equilibrium without external forcing, the momentum tendency (Accel.) is zero, and the momentum equation reduces to a balance between the pressure gradient (PG), Coriolis force (Cor.), advection (Adv.), and frictional forces (Diss.).
+The $u$ momentum equation ($\frac{\partial u}{\partial t}$) and $v$ momentum equation ($\frac{\partial v}{\partial t}$) can be written as:
+
+\begin{equation}
+    \underbrace{\frac{\partial u}{\partial t}}_{Accel_u} = \underbrace{-\frac{1}{\rho_0}\frac{\partial p}{\partial x}}_{PG_u} \underbrace{- \mathbf{u}\cdot\nabla u}_{Adv_u} \underbrace{+ f v}_{Cor_u} \underbrace{ + \nu_h\left(\frac{\partial^2u}{\partial x^2} + \frac{\partial^2u}{\partial y^2}\right) + \nu_v \left(\frac{\partial^2u}{\partial z^2}\right)}_{Diss_u},
+\end{equation}
+and 
+\begin{equation}
+    \underbrace{\frac{\partial v}{\partial t}}_{Accel_v} = \underbrace{-\frac{1}{\rho_0}\frac{\partial p}{\partial y}}_{PG_v} \underbrace{- \mathbf{u}\cdot\nabla v}_{Adv_v} \underbrace{- f u}_{Cor_v} \underbrace{ + \nu_h\left(\frac{\partial^2v}{\partial x^2} + \frac{\partial^2v}{\partial y^2}\right) + \nu_v \left(\frac{\partial^2v}{\partial z^2}\right)}_{Diss_v}.
+\end{equation}
+Where $u$ is the up-slope velocity, $v$ is the across-slope velocity, $\rho_0$ is a reference density, $p$ is the pressure, $f$ is the Coriolis parameter, $\nu_h$ is the horizontal viscosity, and $\nu_v$ is the vertical viscosity. In the no-channel case, far from the ice, there is a geostrophic balance, meaning that the pressure gradient (PG) is balanced by the Coriolis force (Cor; \citealt{Patmore_Turbulence_2023}). Closer to the ice base, the vertical viscous stress grows in importance in balancing the pressure gradient force, and an Ekman layer forms. Introducing a channel will likely modify this balance. For example, in the submarine canyon literature (e.g. \citealt{Saldias_Influence_2020}), the balance is between the pressure gradient, Coriolis, and momentum advection terms (ageostrophic balance), even far from the seabed. Therefore, by analogy, in the presence of a basal channel, the momentum advection term may become important. 
+
+After neglecting heat conduction into the ice, the basal ice shelf melt rate ($m$) is computed using the three equation parametrization \citep{Holland_Modeling_1999}:
+\begin{equation}
+      c_w \rho_r U^* \Gamma_T \left(T_L - T_b \right) = L_i m, 
+      \label{eq:3eq1}
+\end{equation}
+\begin{equation}
+      \rho_r U^* \Gamma_S \left(S_L - S_b \right) = S_b m, 
+      \label{eq:3eq2}
+\end{equation}
+\begin{equation}
+      T_b = \lambda_1 S_b + \lambda_2 + \lambda_3 P,
+      \label{eq:3eq3}
+\end{equation}
+where the density of seawater is $\rho_r=1030\,\mathrm{kg\, m^{-3}}$, the pressure at the ice base is $P=300\,\mathrm{dbar}$, the specific heat capacity of seawater is $c_w=3974\,\mathrm{J\, kg^{-1}\,^\circ C^{-1}}$, the latent heat $L_i= 3.34\times 10^5\,\mathrm{J\, kg^{-1}}$, and $\lambda_1 = -5.75\times 10 ^{-2}\,^\circ \mathrm{C}$, $\lambda_2 = 8.32\times 10^{-2}\,^\circ \mathrm{C}$, and $\lambda_3 = -7.61\times10^{-4}\,^\circ \mathrm{C\, dbar^{-1}}$ are the empirical constants to compute the linear freezing point of the seawater freezing point. 
+$T_b$ and $S_b$ are the freezing point temperature of sea-water and salinity at the interface, respectively. $T_L$ and $S_L$ are the far field temperature and salinity averaged in the Losch layer, i.e., the top $dz$ of the model (i.e., $2\,\mathrm{m}$, $4\,\mathrm{m}$, or $8\,\mathrm{m}$; \citealt{Losch_Modeling_2008}). $T_L - T_b$ is commonly referred as \emph{thermal driving}. The temperature and salinity exchange coefficients are $\Gamma^{T} = 1.1\times10^{-2},$ and $\Gamma^{S} = 3.1\times10^{-4}$, respectively. The friction velocity $U^*$ is given by
+\begin{equation}
+U^* = \sqrt{C_d (u_L^2 + v_L^2)},
+\label{eq:ustar}
+\end{equation}
+with $C_d=0.0097$ the drag coefficient and $u_L$ and $v_L$ are the horizontal velocities averaged over the Losch layer. All variables subscripted ($\,_L$) are averaged over the Losch layer, and are sensitive to the vertical resolution of the model. Therefore, the melt rates are expected to vary for the different vertical resolution cases. 
+
+The ocean-ice boundary layer consists of processes acting over different characteristic length scales, including the large-scale buoyancy‑driven flow, the Ekman layer, and the turbulent boundary layer that comprises the logarithmic layer for momentum, the viscous sub-layer, and the diffusive boundary layers for heat and salt. Using finer vertical resolution improves the representation of the boundary layer dynamics and allows the model to resolve the Ekman layer, typically in the order of a few meters according to the Monin-Obukhov scaling \citep{Vreugdenhil_Ocean_2022}. Consistent with this, \citet{Patmore_Turbulence_2023} shows that Ekman layer dynamics emerge only with vertical resolutions higher than $4\,\mathrm{m}$. Thus, higher vertical resolution makes it more robust to apply the three‑equation parametrization to the unresolved turbulent boundary layer. 
+
+We compute the net vertical advective heat flux as a deviation from the initial conditions by computing $w\left(T-T_{ref}\right)$, where $w$ is the vertical velocities, $T$ is the 3D model temperature, and $T_{ref}=-2.10^\circ C$ is the reference freezing point for the initial conditions of the simulation ($S=34.5$ and $P=300$ dbar).
+
+Hereafter, we use the following notation, $\overline{\phantom{AA}}$ to describe time averages between 30-45 days, $\left<\phantom{A}\right>_x$ to describe averages in the $x$-direction, and  $\left<\phantom{A}\right>_h$ to describe horizontal averages.
+
+\section{Results}
+
+\begin{figure}
+      \includegraphics[width=1\linewidth]{./Fig_3_temp_density.png}
+      \caption{Temperature and density profiles for different channel depths for the simulation with a vertical resolution of $2\,\mathrm{m}$. The top panels (a, b, and c) show the 3D view of the temperature and density contours for three channel depths ($0\,\mathrm{m}$, $80\,\mathrm{m}$, and $160\,\mathrm{m}$) after 45 days of simulation. The bottom panels (d, e, and f) display the density anomalies for different dates of the simulation (8 and 45 days) for the transect in the center of the domain indicated by the gray dashed lines in the top panels. Black dashed lines indicate the isopycnals ($-0.05$, $-0.1$, $-0.15$, $-0.02$, and $-0.25$). The hatched area shows the restoring zone, 100\% restoring on the bottom $16\,\mathrm{m}$ and 0\% restoring above $76\,\mathrm{m}$ from the bottom.}
+      \label{fig:fig3}
+\end{figure}
+
+We first consider the results using $2\,\mathrm{m}$ vertical grid resolution, a slope of $1.5^\circ$, and thermal driving of $2\,^\circ\mathrm{C}$. The quasi-steady state for the no-channel and $80\,\mathrm{m}$- and $160\,\mathrm{m}$-depth channel simulations are illustrated in Fig.~\ref{fig:fig3}. The top panels (Fig.~\ref{fig:fig3}a-c) show the 3D view of the temperature and density contours for the three channel depths, while the bottom panels (Fig.~\ref{fig:fig3}d-f) display the time evolution of the density after 8 days and 45 days for the transect in the center of the domain (gray dashed lines in Fig.~\ref{fig:fig3}a-c).
+
+\subsection{Flow structure, melt rates, and dynamics of a basal channel}
+\label{Sec:sec3.1}
+
+\begin{figure}
+      \includegraphics[width=1\linewidth]{./Fig_4_velocity_vectors.pdf}
+      \caption{Time-mean and $x$-direction averages of the $u$ component and $v$ component are shown for different channel depths: (a and d) no channel, (b and e) $80\,\mathrm{m}$ channel, and (c and f) $160\,\mathrm{m}$ channel for the $2\,\mathrm{m}$ vertical resolution case. 
+      g-i) Horizontal velocity magnitudes and vectors averaged over the Losch layer (i.e., $2\,\mathrm{m}$) for the three different channel depths respectively. j-l) Horizontal velocity magnitudes and vectors averaged between $75\,\mathrm{m}$ and $100\,\mathrm{m}$ below the ice base for the three different channel depths. Black dashed lines correspond to the center of the channel, and gray dashed lines in panels a-f) correspond to the same isopycnals as in Fig.~\ref{fig:fig3}.}
+      \label{fig:fig4}
+\end{figure}
+
+In the no channel configuration (Fig.~\ref{fig:fig3}a), the water column adjacent to the ice base is dominated by near-freezing meltwater, consistent with prior studies \citep{Patmore_Turbulence_2023, Anselin_IceBase_2024}. The time-evolving density sections (Fig.~\ref{fig:fig3}d) show a progressive deepening of the homogeneous, well-mixed layer. At the quasi-equilibrium, the isopycnals contract toward the top of the restoring zone, and they closely follow the slope of the ice base. This isopycnal tilt in the $x$-direction spins up a geostrophic flow through thermal-wind balance in the $y$-direction ($v$ component of the flow). The flow structure is similar to that described in \citet{Anselin_IceBase_2024}, \citet{Patmore_Turbulence_2023}, \citet{Vreugdenhil_Ocean_2022}, and \citet{Jenkins_model_2016}, where the mean velocity structure under a sloped ice base (no channel) features a $u$ velocity in a shallow Ekman layer below the ice base, driven by a thicker geostrophic current in the $y$-direction ($v$; Fig.~\ref{fig:fig4}a and d). In fact, the velocity vector field adjacent to the ice base is deflected $<45^\circ$ from the $x$-direction, consistent with the presence of an Ekman layer (Fig.~\ref{fig:fig4}g), while in the interior (between $75-100\,\mathrm{m}$) the velocity field is perpendicular to the isopycnal tilt and it follows the ice base contours (i.e., geostrophic flow; Fig.~\ref{fig:fig4}j). 
+
+In the presence of a channel, the ocean adjacent to the ice base is warmer (Fig.~\ref{fig:fig3}b and c). Similar to the no-channel case, the isopycnals at the quasi-equilibrium shift toward the top of the restoring zone, but a perturbation of the isopycnals emerges in the y direction. Below the non-Coriolis-favored flank (left flank; lower values of the $y$-coordinate), the isopycnal bulge upwards, while they are displaced downwards below the Coriolis-favored flank. The $u$ velocities are strongest near the ice base, with stronger velocities on the Coriolis-favored flank compared to the non-Coriolis-favored (Fig.~\ref{fig:fig4}b and c). Moving away from the ice base, the isopycnals bulge results in an overall increase in the column-integrated mass, which generates a pressure anomaly. Therefore, vertically-sheared currents along the channel are expected, with opposing signs on either side of this isopycnal bulge. This perturbation of the isopycnals is present in all the channel depths simulated ($20\,\mathrm{m}$, $40\,\mathrm{m}$, $60\,\mathrm{m}$, $80\,\mathrm{m}$, $120\,\mathrm{m}$, and $160\,\mathrm{m}$), with larger amplitudes of the perturbation for deeper channels.
+The $v$ velocities are consistent with a geostrophic flow driven by the tilt of the isopycnals in the $x$-direction, but this flow weakens as it encounters the channel (Fig.~\ref{fig:fig4}e and f), suggesting a departure from a geostrophic balance. Additionally, a weak counter current in the $v$ velocity emerges near the very top of the channel (very hard to see), leaning onto the non-Coriolis-favored flank. We interpret this counter current as an Ekman flow associated with the positive $u$ flow along the channel crest.
+The overall velocity structure is consistent with that of \citet{Cheng_Channel_2024}, with the Coriolis-favored flank showing stronger $u$ velocities and weaker $v$ velocities, while the non-Coriolis-favored flank shows weaker $u$ velocities and stronger $v$ velocities (Fig.~\ref{fig:fig4}). 
+
+Increasing the channel depth from $0\,\mathrm{m}$ to $160\,\mathrm{m}$ steepens the isopycnals in the y direction, thereby increasing the $u$ velocity and slightly decreasing the magnitude of $v$ within the channel. At the ice-ocean boundary, the ice‑base velocity on the non-Coriolis-favored flank of the channel maintains the $< 45^\circ$ Ekman orientation characteristic of the no‑channel case, for both the $80\,\mathrm{m}$ and $160\,\mathrm{m}$ channels. As the flow enters the channel (non-Coriolis flank), it rotates to become approximately normal to the local channel slope. At the channel crest, the flow is channelized, meaning that most of the flow is in the $x$-direction ($u$ velocity). On the Coriolis-favored flank, the velocity transitions from an along‑channel orientation back toward the $< 45^\circ$ angle associated with the no channel case (Fig.~\ref{fig:fig4}g, h, and i). Similar to the no-channel case, in the interior, the velocity fields follow the ice base contours. 
+
+\begin{figure}
+      \includegraphics[width=1\linewidth]{./Fig_5_meltrate_us_channels.pdf}
+      \caption{Snapshot of the melt rate, friction velocity, and thermal driving on the 45th day of simulation at the ice shelf interface for different channel depths at $2\,\mathrm{m}$ vertical resolution: a, b, and c melt rates ($m$), d, e, and f friction velocity ($U^*$), and g, h, and i, thermal driving ($T_L-T_b$) for the no channel, $80\,\mathrm{m}$ channel, and $160\,\mathrm{m}$ channel, respectively. Dashed line shows the channel apex and dotted line shows the flanks of the channel ($1.2\,\mathrm{km}$ to either side of the channel apex).}
+      \label{fig:fig5}
+\end{figure}
+
+In the no‑channel case, both ice‑base velocity and melt rates exhibit little spatial variability (Fig.~\ref{fig:fig5}a). This small variability occurs mainly in the $x$-direction and appears as a striping pattern due to the steps generated by the ice-shelf topography to match the z-coordinate of the model. The forcing variables in the melt parametrization (Eqs.~\ref{eq:3eq1}-\ref{eq:3eq3}), i.e., the friction velocity and thermal driving, are also almost spatially uniform (Fig.~\ref{fig:fig5}d and g), with the steps most visible in the friction velocity. In the absence of a channel and for channels shallower than $40\,\mathrm{m}$, differences in melt rates arise mainly from variations in the far-field temperature, which remains close to the freezing point. By contrast, the melt rates in the presence of deeper channels are heterogeneous, with two dominant regions of melt: 1) the Coriolis‑favored flank collocated with the strongest $u$ velocities and 2) the non-Coriolis-favored flank associated with the strongest $v$ velocities (Fig.~\ref{fig:fig4}). Since the $v$ velocities are approximately two times stronger than the $u$ velocities, the $v$ component dominates the $U^*$ in the melt rate computation (Eq.~\ref{eq:ustar}). This is confirmed by the non-Coriolis-favored flank melt rate being larger in magnitude but confined to the `shoulder' of the channel, on the deeper part of the flank, in contrast with the enhanced melt rate on the Coriolis-favored flank, which is less intense and more spread out (Fig.~\ref{fig:fig5}b and c). 
+The simulated melt pattern is different from those described in previous numerical modeling studies with coarser vertical resolutions \citep{Cheng_Channel_2024, Millgate_BasalChannels_2013, Gladish_basal_2012}, which reported most of the melt occurring in the Coriolis-favored flank. 
+Outside the channel influence, melt weakens relative to the channelized region, yet remains higher than in the no‑channel case, since without a channel, the sub-ice layer is thicker and colder (Fig.~\ref{fig:fig3}). 
+
+The melt patterns can be understood by examining the friction velocity $U^*$ (Fig.~\ref{fig:fig5}e and f; Eq.~\ref{eq:ustar}) and the thermal driving $T_L-T_b$ (Fig.~\ref{fig:fig5}h and i). The spatial structure of $U^*$ closely resembles that of the melt rates, with the largest $U^*$ on the `shoulder' of the non-Coriolis-favored flank, intermediate values on the Coriolis-favored flank, and the smallest in the channel crest and outside the channel influence. The thermal driving shows a broad region of elevated temperatures near the channel apex, with the highest values on the Coriolis-favored flank (compare $T_L-T_b$ fields to dashed channel centerline in Fig.~\ref{fig:fig5}h and i). Together, these patterns suggest that melting on the non-Coriolis-favored flank is primarily driven by enhanced friction velocity, whereas melting on the Coriolis-favored flank is controlled by both the velocities and the thermal driving. The spatial variability in the melt rate, friction velocity, and thermal driving increases as the channels deepen. Deeper channels also exhibit larger thermal drivings (i.e., warmer temperatures) throughout the domain, leading to an overall increase in melt as channel depth increases.
+
+The friction velocity components further reveal the emergence of a distinct spatial pattern in $U^*$. In fact, the $C_dv_L^2$ component of the friction velocity (Fig.~\ref{fig:fig6}c) dominates both the spatial pattern and intensity of the total friction velocity, especially on the non-Coriolis-favored flank of the channel. This behavior is consistent with the enhanced melt rates observed on that flank, indicating that flow variations in the $y$-direction play a key role in modulating basal drag and melting. This pattern is dependent on the slope of the channel, since shallower channel depths (i.e., $40\,\mathrm{m}$ and shallower; not shown) do not exhibit this intensification in the non-Coriolis flank because the isopycnal tilting is weaker and thus no weakening of the $v$ velocity is observed near the channel apex.
+
+In quasi-equilibrium, the momentum tendency is zero, and thus its terms act only to maintain the flow. With this in mind, the momentum budget terms averaged in the $x$-direction (Fig.~\ref{fig:fig6}d-i) reveal further insight into the $\overline{U^*}$ pattern. For the $u$ component of the momentum balance (Fig.~\ref{fig:fig6}d-f), 
+% New TEXT
+the pressure-gradient term is positive and thus acts to accelerate the $u$ velocity (Fig.~\ref{fig:fig6}f). This is largely balanced by the Coriolis term (Fig.~\ref{fig:fig6}e), which acts to decelerate the $u$ flow, indicating an approximately geostrophic flow in the $u$ component outside the channel. Within the channel, the flow becomes ageostrophic, since the advection term (Fig.~\ref{fig:fig6}d) is comparable in magnitude to the other terms and acts to decelerate the $u$ flow.
+% OLD TEXT
+%the Coriolis term (Fig.~\ref{fig:fig6}e) largely balances the pressure-gradient term (Fig.~\ref{fig:fig6}f), indicating an approximately geostrophic flow in the $u$ component. The advection term (Fig.~\ref{fig:fig6}d) is smaller in magnitude but exhibits a weak local channel-scale structure, with negative values on the Coriolis-favored flank, suggesting a small deviation from a purely geostrophic balance within the channel. 
+Meanwhile, the $v$ component of the momentum balance (Fig.~\ref{fig:fig6}g-i) is more complex and predominately ageostrophic. 
+% NEW TEXT
+The pressure-gradient term acts to accelerate the $v$ flow as it enters and exits the channel, with an important deceleration in the center of the channel (Fig.~\ref{fig:fig6}i). This is balanced by the advection term with an opposing acceleration/deceleration pattern (Fig.~\ref{fig:fig6}g). The Coriolis term (Fig.~\ref{fig:fig6}h) is weak in comparison to the other terms. Therefore, the simulated $U^*$ and melt rate pattern arise from the ageostrophic nature of the $v$ velocities governed by either the pressure-gradient or advection terms. 
+% OLD TEXT
+%The Coriolis contribution (Fig.~\ref{fig:fig6}h) is weak, and the dominant balance is instead between advection and the pressure-gradient term. The advection term (Fig.~\ref{fig:fig6}g) displays a pronounced spatial pattern, with positive values in the channel center and negative values along both flanks. This structure implies an deceleration of the flow as it enters and exits the channel compensated by the pressure gradient and Coriolis term resulting in large $v$ velocities on the flanks of the channel (see Fig.~\ref{fig:fig4} and Fig.~\ref{fig:fig3}). Together, these results indicate that ageostrophic dynamics within the channel shape the circulation in the $y$-direction and the resulting friction velocity and melt-rate patterns.
+
+\begin{figure}
+      \includegraphics[width=1\linewidth]{./Fig_6_ustar_momentum.pdf}
+      \caption{Snapshots of the components of friction velocity ($U^*$) on the 45th day of simulation and time-mean momentum budget for the $80\,\mathrm{m}$ depth channel at $2\,\mathrm{m}$ vertical resolution. a) Squared friction velocity ($U^*\,^2 = C_du_L^2 + C_dv_L^2$), b) $u_L$ component of friction velocity ($C_du_L^2$) and c) $v_L$ component of friction velocity ($C_dv_L^2$). In panels a-c, the dotted line shows the center of the channel. Time-mean and $x$-direction averages of the momentum budget terms are: d) u component of advection, e) u component of Coriolis term, f) u component of pressure gradient. Panels g, h, and i are the same as panels d, e, and f, but for the v component.  In panels d-i, the dots shows the friction velocity averaged in the $x$-direction ($\left<U^*\right>_x$) for the 45th day of simulation.}
+      \label{fig:fig6}
+\end{figure}
+
+Given the importance of the advection term of the $v$ velocity momentum budget, this term is further decomposed into its three components for the $80\,\mathrm{m}$ channel (Fig.~\ref{fig:fig7}). Near the ice base, the first term ($-u\frac{\partial v}{\partial x}$) is non-zero due to the steps required to represent the ice shelf base slope, and it is compensated by the vertical advection term ($w\frac{\partial v}{\partial z}$). In the interior, this term nearly vanishes since the gradients of the $v$ velocity in the $x$-direction are negligible. The remaining two components associated with $v$ and $w$ advection have similar spatial patterns but with opposite sign, with the $v$ component resembling the full advection term. Although they nearly compensate each other, the resulting full advection term of the $v$ velocity implies that $v$ momentum is imported (positive) and exported (negative) into the channel from the y direction (Fig.~\ref{fig:fig6}g and Fig.~\ref{fig:fig7}d). Importantly, within the Ekman layer (inset of Fig.~\ref{fig:fig7}d), the $-w\,\partial v/\partial z$ term is larger than the $-v\,\partial v/\partial y$ term, leaving a positive residual in the $v$ velocity momentum balance (Fig.~\ref{fig:fig7}d, f, and g). This pattern emerges due to the strong $v$ flow from outside the channel entering a weak $v$ flow, thereby importing momentum into this region. The robustness of this mechanisms is confirmed by increasing the vertical viscosity for the $80\,\mathrm{m}$ channel from $2\times10^{-4}\,\mathrm{m^2 s^{-1}}$ to $1\times10^{-3}\,\mathrm{m^2 s^{-1}}$, in which the positive residual in the $v$ velocity momentum balance becomes stronger (Supplementary Fig.~\ref{fig:Sfig2}). This imbalance in the advection terms implies a local vertical acceleration of $v$-direction flow in the very top grid cells as they encounter the non-Coriolis-favored flank of the channel. This acceleration explains both the collocation of the residual with the region of large $U^*$ (dots in Fig.~\ref{fig:fig7}) and the enhanced melt on the non‑Coriolis‑favored flank (Fig.~\ref{fig:fig6} and Supplementary Fig.~\ref{fig:SfigXX}).
+
+\begin{figure}
+      \includegraphics[width=1\linewidth]{./Fig_7_advection.png}
+      \caption{Time-mean and $x$-direction averages of the $v$ momentum advection components are shown for the a) $x$ component, b) $y$ component, c) $z$ component, and d) full advection term as in Fig.~\ref{fig:fig6}g (note different colorbar between figures). The time and $x$-direction averaged components of the $v$ momentum advection term in the Losch layer for the $80\,\mathrm{m}$ depth channel are e) $x$ component, f) $y$ component, g) $z$ component, and h) full advection term. Note that the full advection term (panel h) is multiplied by five to make the signal visible.}
+      \label{fig:fig7}
+\end{figure}
+
+
+\subsection{Impact of vertical resolution}
+\label{Sec:sec3.2}
+
+\begin{figure}
+      \includegraphics[width=1\linewidth]{./Fig_8_velocities_c80m_inverted.png}
+      \caption{Mean profiles of the a) $u$ velocity, e) $v$ velocity, and i) stratification ($N^2$) of the $80\,\mathrm{m}$ channel depth simulation are shown for each vertical resolution on the 45th day of simulation. $X$-direction averages of the $u$ component and $v$ component of velocity, and $N^2$ of the $80\,\mathrm{m}$ channel depth simulation are shown for each vertical resolution: b, f, and j) $2\,\mathrm{m}$, c, g, and k) $4\,\mathrm{m}$, and d, h, and l) $8\,\mathrm{m}$, respectively. In panels b-h, the dots show the snapshot melt rates on the 45th day of the simulation, the insets show a zoomed-in view of the channel, and black dashed lines correspond to the same isopycnals as in Fig.~\ref{fig:fig3}.}
+      \label{fig:fig8}
+\end{figure}
+
+\citet{Patmore_Turbulence_2023} showed that vertical resolutions higher than $4\,\mathrm{m}$ are required to resolve the Ekman layer beneath a planar slope ice-shelf (no-channel). Using the $2\,\mathrm{m}$ simulation described above as a baseline that resolves the Ekman layer, the impact of coarser resolution in the representation of the Ekman layer and thus the melting of the ice-shelf is examined.
+Figure \ref{fig:fig8} exemplifies this by showing the velocity structure for the $80\,\mathrm{m}$ channel depth case for the three vertical resolutions ($2\,\mathrm{m}$, $4\,\mathrm{m}$, and $8\,\mathrm{m}$) at the quasi-steady state. The domain averaged $u$ and $v$ components show a strengthening of the currents close to the ice base as vertical resolution increases (Fig.~\ref{fig:fig8}a, e). In the top $20\,\mathrm{m}$, although the $8\,\mathrm{m}$ vertical resolution partially resolves the Ekman layer (Fig.~\ref{fig:fig8}a), higher vertical resolutions significantly improve the representation of the Ekman layer. Overall, both the mean profiles and $x$-direction averages of the velocity fields show similar patterns across the three different vertical resolutions, with exception of the weak counter current in the $v$ velocity near the top of the channel leaning onto the non-Coriolis-favored flank (zoom into the channel apex in the inset Fig.~\ref{fig:fig8}f); this feature is resolved at $2\,\mathrm{m}$, weakens at $4\,\mathrm{m}$ (Fig.~\ref{fig:fig8}g) and is not resolved at $8\,\mathrm{m}$ (Fig.~\ref{fig:fig8}h). Contrary to the broadly consistent velocity patterns across vertical resolutions, the stratification and melt rates show a significant variation.
+
+
+The stratification ($N^2=\frac{g}{\rho_0}\frac{\partial \rho}{\partial z}$) shows two peaks in the vertical, one associated with the Ekman layer at the ice-ocean interface and another in the interior just above the restoring zone (Fig.~\ref{fig:fig8}i). The additional peak at $\sim230\,\mathrm{m}$ from the ice surface is an artifact when computing the distance from the ice surface, and it corresponds to the stratification above the restoring zone within the channel. At the ice-ocean interface, the stratification gets larger as the vertical resolution increases, and it matches the vertical resolution of the model since the heat and fresh water fluxes associated with the ice melt are instantly mixed within the Losch layer. In the rest of the water column, the stratification across all resolutions is similar. The $x$-direction average of the stratification is shown in Figs.~\ref{fig:fig8}j-l for the different resolutions. In the $2\,\mathrm{m}$ and $4\,\mathrm{m}$ cases (see insets in Figs.~\ref{fig:fig8}j-l), the stratification within the channel extends for most of its width and detaches from the non-Coriolis-favored flank of the channel at approximately half of the channel depth, while in the $8\,\mathrm{m}$ case the stratification leans onto the non-Coriolis flank and it is weaker than in the higher vertical resolution cases. 
+
+Strikingly, the melt pattern (dots in Fig.~\ref{fig:fig8}) varies with vertical resolution. As described in Section \ref{Sec:sec3.1}, in the $2\,\mathrm{m}$ case, melting is heterogeneous, with two dominant regions of melt: 1) the Coriolis‑favored flank and 2) the non-Coriolis-favored flank. This pattern is still present, but weaker, in the $4\,\mathrm{m}$ case. Meanwhile, at $8\,\mathrm{m}$ vertical resolution, only the Coriolis flank experiences more melt. Outside the channel, melt rates are weaker as vertical resolution increases due to the shallower Losch layer being dominated by melt water, resulting in the stronger stratification observed in Figs.~\ref{fig:fig8}j-l. 
+
+\begin{figure}
+      \includegraphics[width=1\linewidth]{./Fig_9_meltrate_us_tf.pdf}
+      \caption{Time-series of the domain averaged melt rate for different vertical resolutions ($2\,\mathrm{m}$, $4\,\mathrm{m}$, and $8\,\mathrm{m}$) with channel depths of $0\,\mathrm{m}$, $80\,\mathrm{m}$, and $160\,\mathrm{m}$ for 45 days of simulation. b) Domain averaged melt rate and spatial standard deviation on day 45. c-e) Snapshot of the melt rate ($m$) on the 45th day of simulation at the ice shelf base for different vertical resolutions ($2\,\mathrm{m}$, $4\,\mathrm{m}$, and $8\,\mathrm{m}$) for the $80\,\mathrm{m}$ depth channel. f-h) Same as c-e but the friction velocity $U^*$. i-k) same as c-e, but the thermal driving ($T_L-T_b$). In panels c-k, dashed lines show the channel apex and dotted lines shows the flanks of the channel ($1.2\,\mathrm{km}$ to either side of the channel apex).}
+      \label{fig:fig9}
+\end{figure}
+
+% OLD TEXT
+% Further analysis of the melt rate time series (Fig.~\ref{fig:fig9}a) reveals that coarser vertical resolutions consistently produce larger melt rates than those with finer resolution, regardless of channel depth. This is likely due to the dependence on the vertical resolution of the melt parametrization (Eq.~\ref{eq:3eq1}-\ref{eq:3eq3}) and fluxes being instantly mixed in the Losch layer of the model. By construction, higher vertical resolutions produce a thinner, more intense melt water layer, which in turn drives the melt parametrization with colder temperatures \citep{Patmore_Turbulence_2023}. 
+
+Further analysis of the melt rate time series (Fig.~\ref{fig:fig9}a) reveals that coarser vertical resolutions produce larger melt rates than those with finer vertical resolution regardless of channel depth. This is likely due to the dependence on the vertical resolution of the melt parametrization (Eq.~\ref{eq:3eq1}-\ref{eq:3eq3}) and fluxes being instantly mixed in the Losch layer of the model. By construction, higher vertical resolutions produce a thinner, more intense melt water layer, which in turn drives the melt parametrization with colder temperatures \citep{Patmore_Turbulence_2023}. %In the presence of channels, variations in $U^*$ associated with vertical resolution are likely compensated by opposing changes in thermal driving, leading to comparable melt rates across resolutions.
+
+The domain-averaged quasi-steady melt rates are shown in Fig.~\ref{fig:fig9}b, revealing three important features: first, the difference between the coarse and high vertical resolution mean melt rates decreases as the channel deepens. Secondly, the largest melt rate change occurs for the $2\,\mathrm{m}$ vertical resolution, with almost a doubling of the melt rates between the no channel experiment and the $160\,\mathrm{m}$ channel depth case. Third, at coarser vertical resolution, the spatial standard deviation for the no channel and channel cases overlap, whereas at $2\,\mathrm{m}$ vertical resolution the no channel case is statistically different from the channels cases. The domain average melt rate for the no channel case are $61.4\,\mathrm{m/year}$ for $8\,\mathrm{m}$ and $27.6\,\mathrm{m/year}$ for $2\,\mathrm{m}$, while in the $160\,\mathrm{m}$ channel depth case, the melt rates are $75.1\,\mathrm{m/year}$ for $8\,\mathrm{m}$ and $50.0\,\mathrm{m/year}$ for $2\,\mathrm{m}$. In other words, on average the melt rates increase $22.3\%$ for $8\,\mathrm{m}$, and $81.5\%$ for $2\,\mathrm{m}$ as the channel depth increases from $0\,\mathrm{m}$ to $160\,\mathrm{m}$. 
+%The response of melt rates to channel depth strongly suggests a resolution‑dependence due to the improved representation of the Ekman layer and stratification in the higher vertical resolution cases. 
+
+% The following values are computed in the Fig9_velocities.ipynb notebook
+% Averaged meltrates for 0m channel:
+% dz= 8,  61.388763
+% dz= 4,  44.435913
+% dz= 2,  27.55666
+
+% Averaged meltrates for 160m channel:
+% dz= 8,  75.10886
+% dz= 4,  65.01516
+% dz= 2,  50.01205
+ 
+% Percentages meltrates for 160m vs 0m channel:
+% dz= 8,  122.34951
+% dz= 4,  146.3122
+% dz= 2,  181.48807
+
+The spatial variability of the simulated melt rates increases with the increase of vertical resolution and channel depth. Namely, coarser resolutions favor more spatially uniform melting, whereas finer resolutions capture localized melt patterns within the channel. The spatial distribution of basal melt rates for the $80\,\mathrm{m}$ deep channel (Fig.~\ref{fig:fig9}c-e) reinforces this interpretation. At $8\,\mathrm{m}$ vertical resolution, melting is relatively homogeneous across the channel, with larger melt rates in the Coriolis-favored flank. Meanwhile, the $2\,\mathrm{m}$ resolution shows melting becoming strongly localized along the channel flanks, distributed along most of the Coriolis-favored flank (right flank in Fig.~\ref{fig:fig9}c) and narrowly focused on the ice base inflection (the `shoulder') of the non-Coriolis-favored flank (left flank; consistent with Fig.~\ref{fig:fig8}). These results reveal that heterogeneity in the melt patterns is observed only at higher than $4\,\mathrm{m}$ vertical resolution.
+
+The friction velocity components reveal a clear sensitivity to vertical resolution, with intensified $U^*$ on the non-Coriolis-favored flank only present in the $2\,\mathrm{m}$ and $4\,\mathrm{m}$ vertical resolution cases (Fig.~\ref{fig:fig9}f, g, and h). This pattern is not present in the coarser vertical resolution, suggesting that high vertical resolution is required to resolve the imbalance between the horizontal and vertical advection of momentum. In fact, Fig.~\ref{fig:fig10}d shows that the $v$ momentum advection term ($Adv_v$) is a source in the $v$ momentum equation for the $2\,\mathrm{m}$, with a smaller footprint in the $4\,\mathrm{m}$ case, and no source in the $8\,\mathrm{m}$ case. This is consistent for deeper channels ($160\,\mathrm{m}$; Supplementary Fig.~\ref{fig:Sfig3}), in which this source in the $v$ momentum equation is only present for resolutions higher than $4\,\mathrm{m}$.
+
+The thermal driving also has a dependence on vertical resolution: the $8\,\mathrm{m}$ vertical resolution case is warmer, leading to higher melt rates, while higher vertical resolutions are colder overall, with temperatures closer to the freezing point outside the channel. This is consistent with the fact that the coarser resolution melting is larger than those in the higher vertical resolution. %The larger thermal drivings in coarser resolution and larger friction velocities in the higher resolution result in similar average melt rates for all the vertical resolutions in the presence of a channel.
+
+\begin{figure}
+      \includegraphics[width=1\linewidth]{./Fig_10_advection_boundary.pdf}
+      \caption{Time and $x$-direction averaged components of the $v$ momentum advection term in the Losch layer for the $80\,\mathrm{m}$ depth channel for $2\,\mathrm{m}$, $4\,\mathrm{m}$, and $8\,\mathrm{m}$ vertical resolutions: a) $x$ component, b) $y$ component, c) $z$ component, and d) full advection term as in Fig.~\ref{fig:fig7}e-h. Note that the full advection term (panel h) is multiplied by five to make the signal visible.}
+      \label{fig:fig10}
+\end{figure}
+
+\subsection{Response of melt rates to different channel depths and slopes}
+\label{Sec:sec3.3}
+
+\begin{figure}
+      \includegraphics[width=1\linewidth]{./Fig_11_channel_slope.pdf}
+      \caption{Melt rates, friction velocity, and thermal driving dependence on different channel depths and slopes on the last day of simulation (45th day). a) Spatially averaged melt rates, b) friction velocity, and c) thermal driving for different channel depths. d-f) similar to a-c) but for different slopes for the $80\,\mathrm{m}$ depth channel.}
+      \label{fig:fig11}
+\end{figure}
+
+Melt rates show distinct responses to channel depth and ice-shelf slopes (Fig.~\ref{fig:fig11}). Melt rates increase as channel depth increases (Fig.~\ref{fig:fig11}a). This melting occurs mostly on the flanks/within the channels (Fig.~\ref{fig:fig9}c-e), and it is linked to strong dependencies of both friction velocity and thermal driving on channel depth (Fig.~\ref{fig:fig11}b-c). 
+With increasing channel depth, the mean friction velocity decreases, consistent with a weakening of the flow in the $y$-direction described in Figs.~\ref{fig:fig4}d-f and \ref{fig:fig5}. Additionally, the thermal driving increases, in line with the net vertical advective heat flux shown in Fig.~\ref{fig:fig12}g, both exhibiting a square-root response to channel depth. In the no-channel case, vertical heat flux is negligible because vertical velocities are close to zero, preventing any significant flow perpendicular to the ice base (Fig.~\ref{fig:fig12}a). In contrast, when a channel is present, the strong vertical velocities in the channel flanks result in an upward flux (positive $w(T-T_{ref})$) of relatively warm water on the non-Coriolis flank and a downward flux (negative $w(T-T_{ref})$) of relatively cooler water on the Coriolis flank (Fig.~\ref{fig:fig12}b-c), bringing warmer waters toward the ice base and enhancing melt. As channel depth increases, these vertical heat fluxes intensify, explaining the larger melt rates in deeper channels (Fig.~\ref{fig:fig12}g). 
+
+The `background slope' of the ice shelf that the channel sits within can vary substantially, with steep slopes typically occurring near grounding lines (Supplementary Fig.~\ref{fig:Sfig1}). Varying the ice shelf slopes also has a strong influence on melt rates, friction velocity, and thermal driving (Fig.~\ref{fig:fig11}d-f). As the slope increases, the melt rates increase, with a quadrupling of melt rates between the shallowest ($0.5^\circ$) and steepest ($2.0^\circ$) slope.  This increase in melt is associated with larger friction velocity and stronger thermal driving at steeper slopes. The larger friction velocity results from steeper slopes enhancing the geostrophic flow, consistent with \citet{Anselin_IceBase_2024}, who reported a square‑root dependence between melt rates and slope, a relationship that arises from the friction velocity term rather than the thermal driving. In fact, in our simulations, the friction velocity also appears to follow a sub-linear function, in broad agreement with the square-root theoretical scaling. Despite this, our simulations show a broadly linear response of the melt rates to slope linked to the linear behavior of thermal driving to the slopes. The intensified geostrophic flow interacts with the channel geometry, and it generates a vertical heat flux that warms the ice-ocean interface (Supplementary Fig.~\ref{fig:Sfig5}). The heat flux response to the slope is also linear, around one order of magnitude larger in the steep slopes compared to the shallowest slope. Together, the larger frictional velocity (predominantly the $v$ component) and vertical heat fluxes lead to larger melt rates as the slope increases in the presence of a channel.
+
+Varying the restoring temperature results in an increase in the melt rates (Supplementary Fig.\ref{fig:Sfig6}). The same mechanisms identified when varying the ice shelf slope also act here: higher restoring temperatures strengthen the friction velocities and intensify vertical transport of warm water toward the ice base. Together, these processes lead to larger melt rates as the thermal driving increases.
+
+The spatial standard deviation of the melt rates for all the cases reveals that the spatial variability of the melt rates increases with increasing channel depth and slope, an effect that is more evident in the $2\,\mathrm{m}$ cases. This arises from a combination of larger spatial variability in the friction velocity (as described in Figs.~\ref{fig:fig5} and \ref{fig:fig9}) and larger spatial variability in the thermal driving (Fig.~\ref{fig:fig12}b-c), the latter linked to spatially varying vertical heat fluxes (Figs.~\ref{fig:fig12}d–f and Supplementary Fig.~\ref{fig:Sfig5}d-f). 
+
+\begin{figure}
+      \includegraphics[width=1\linewidth]{./Fig_12_wT.pdf}
+      \caption{$X$-direction averages of the net vertical advective heat flux for the a) no-channel, b) $80\,\mathrm{m}$, and c) $160\,\mathrm{m}$ channel depths with $2\,\mathrm{m}$ vertical resolution on the last day of simulation (45th day). Vertically-integrated $x$-direction averages of the vertical heat fluxes for the different vertical resolutions are shown in panels d-f for the d) no-channel, e) $80\,\mathrm{m}$, and f) $160\,\mathrm{m}$ channel depths. Vertically-integrated spatial averages of the vertical heat fluxes dependence on different channel depths are shown in panel g).}
+      \label{fig:fig12}
+\end{figure}
+
+Previous studies have argued that there is preferential melting of the Coriolis-favored flank \citep{Cheng_Channel_2024, Gourmelen_Channelized_2017, Millgate_BasalChannels_2013, Gladish_basal_2012}. This asymmetry of the melt rates between the Coriolis-favored flank and the non-Coriolis-favored is further explored by dividing the mean melt rates, friction velocity, and thermal driving on the Coriolis-favored flank by those on the non-Coriolis-favored flank (Fig.~\ref{fig:fig13}; flanks are marked by dotted lines in Fig.~\ref{fig:fig9}). Values around $100\%$ indicate similar melt rates, $U^*$, and thermal driving between flanks, while values above $100\%$ indicate enhanced melting, and warmer waters on the Coriolis-favored flank. 
+
+In the no‑channel case, all quantities are symmetric, with ratios close to 100\%. As channel depth increases for the $8\,\mathrm{m}$ and $4\,\mathrm{m}$ vertical resolution, melt rates on the Coriolis‑favored flank become slightly larger, approximately $15\%$ larger across all channel depths (Fig.~\ref{fig:fig13}a). The $2\,\mathrm{m}$ vertical resolution exhibits a symmetric melt independent of the channel depth. This symmetry emerges from the competing effects of strong friction velocity in the non-Coriolis-favored flank and large thermal driving in the Coriolis-favored flank (Fig.~\ref{fig:fig13}b-c).
+Meanwhile, both the $4\,\mathrm{m}$ and $8\,\mathrm{m}$ vertical resolution display the largest asymmetry in the $160\,\mathrm{m}$ channel case, experiencing approximately $25\%$ more melt in the Coriolis favored flank. The coarser vertical-resolution cases are asymmetric because the frictional velocities are symmetric or consistently larger on the Coriolis-favored flank. Thus, melting at coarse resolutions is enhanced by both frictional velocity and thermal forcing in the Coriolis-favored flank. Note that the thermal driving ratio shows that the Coriolis-favored flank is always warmer regardless of the resolution, typically $\sim10\%$ (Fig.~\ref{fig:fig13}c). 
+
+Interestingly, varying the background slope results in $\sim30\%$ more melt in the Coriolis-favored flank $2\,\mathrm{m}$ with the shallowest slope and only $\sim5\%$ more melt in the Coriolis-favored flank for slopes larger than $1^\circ$. In both cases, the asymmetry in the melt rates arises from the combined asymmetries of the friction velocity and thermal driving fields (Fig.~\ref{fig:fig13}d-f). When the friction velocity is below 100\%, the Coriolis-favored flank velocities are weaker than the non-Coriolis-favored flank, this is observed only for slopes larger than $1^\circ$ in the highest vertical resolution ($2\,\mathrm{m}$). Coarser simulations reveal symmetrical frictional velocities for slopes larger than $1^\circ$. The thermal driving is on average $10$\% larger in the Coriolis-favored flank for the coarser vertical resolutions and $\sim20\%$ for the $2\,\mathrm{m}$ case. This reveals competing effects between the thermal driving and friction velocity in setting the melt-rate asymmetry between flanks. At coarse vertical resolution, asymmetries between the two flanks reach around $\sim15\%$ more melt, controlled by the asymmetry in the thermal forcing. In contrast, at higher vertical resolution the is almost no asymmetry between channel flanks for slopes larger than $1^\circ$, indicating that the asymmetry in the $U^*$  compensates the asymmetry in the thermal driving. Thus, better resolving the advection of momentum and $U^*$ spatial patterns has consequences in the asymmetry of the melt rates in both flanks of the channels.
+
+
+\begin{figure}
+    \includegraphics[width=1\linewidth]{./Fig_13_ratio_channel_slope.pdf}
+    \caption{Ratios between the Coriolis and non-Coriolis-favored flanks of the channel as shown by the dotted lines in Fig.~\ref{fig:fig9} for different channel depths and ice shelf slopes. Ratios of a) melt rates, b) friction velocity, c) thermal driving for different channel depths. d-f) similar to a-c) but for different slopes.}
+    \label{fig:fig13}
+\end{figure}
+
+\section{Discussion and conclusions}
+\label{Sec:discussion}
+
+While the no-channel configuration is largely in geostrophic balance, which generates an Ekman layer at the ocean-ice interface, introducing a channel fundamentally changes the dynamical balance. Within the channel, the flow is in ageostrophic balance between the pressure gradient, Coriolis, and advection terms. This ageostrophic balance leads to enhanced vertical advection of momentum, which accelerates the flow as it enters the channel, thereby increasing the melt rates locally. Notably, this mechanism is only resolved in the higher resolution simulations, indicating that coarse vertical resolution models may fail to capture the spatial variability of the melt.
+
+Our results challenge the common perception that basal melting within ice-shelf channels is strongly asymmetric between the Coriolis-favored and non-Coriolis-favored flanks. Once the vertical resolution resolves the Ekman layers ($2\,\mathrm{m}$), the Coriolis-favored flank melts symmetrically. 
+In contrast, simulations with coarser vertical resolution exhibit larger asymmetries that are in line with previous modeling studies also using coarser vertical resolutions \citep{Cheng_Channel_2024, Millgate_BasalChannels_2013, Gladish_basal_2012}. 
+
+%Vertical resolution plays a critical role in accurately resolving the Ekman layers and the vertical and lateral advection of momentum within the channel, which in turn governs the friction velocity and the melt-rate patterns. Coarser vertical grids tend to homogenize the flow and underestimate localized advection, leading to smoother and asymmetric melt rates. More importantly, lower resolution obscures the underlying physical mechanisms for the observed melt rate patterns. Our results highlight that better resolving the Ekman layer is essential for representing channelized melting realistically.
+
+The strong slope dependence of melt rate asymmetry reported by \citet{Lowery_PIG_2025} near the grounding line of PIG is not observed in our simulations. This discrepancy with observations could be attributed to missing processes in our simulations, for example, the more complex ice shelf geometry of the cavity (single channel vs continuous sets of channels), the effect of fresh water discharge at the grounding line, and the ice-shelf cavity circulation. Yet, here we find that the Coriolis intensified flow is likely not the main mechanism responsible for large asymmetries in the melting of the channel flanks.
+
+Increasing channel depth leads to an approximately $80\%$ increase in melt. Our results are consistent with \citet{Cheng_Channel_2024}, and here we demonstrate that enhanced melt for deeper channels is controlled by vertical advective heat fluxes.
+These processes are not explicitly represented in most climate models and regional simulations, which typically lack the resolution to represent channels accurately. As a result, melt rates associated with deep channels may be systematically underestimated in large-scale models.
+
+Increasing the background ice-shelf slope resulted in a quadrupling of the melt rates, which is driven by the melt rate dependence on slope \citep{Anselin_IceBase_2024} and enhanced heat fluxes in the presence of a channel. Steeper slopes in our simulations are representative of regions closer to the grounding line, associated with substantially higher melt rates than shallower slopes farther downstream. This finding is consistent with observational inferences such as those of \citet{Shean_IceShelf_2019, Dutrieux_PineIsland_2013}, who reported melt rates within channels near the grounding line being an order of magnitude larger than regional averages. Together, these results suggest that the extreme melt rates observed near grounding lines may arise from a combination of steep slopes and the presence of channels. 
+
+Unlike \citet{Millgate_BasalChannels_2013}, who found that melt rates were insensitive in the presence of channels smaller than the Rossby deformation radius ($<2\mathrm{km}$ width), our simulated melt rates are sensitive to channels of similar scales to the deformation radius. This difference likely reflects differences in the model configurations, including high vertical resolution, the absence of a grounding line, and having planar ice between channels. Therefore, more realistic ice-shelf topographies (i.e., cavity like geometries) are required to better understand how realistic channels interact with the grounding line and how the cavity circulation influences the melt rates.
+
+Future studies should investigate the processes described here using ice-shelf-coupled simulations, as the resulting melt patterns are likely to modify the channel geometry over time, and feedbacks between the geometry and the melt rate patterns in the ice shelves are expected.
+
+Finally, the results presented in this paper are idealized, meaning they provide evidence of mechanisms and dynamics of basal channels that should be further tested with in situ data and more realistic simulations. The idealized nature of our simulations implies some limitations.
+Restoring at the lower boundary may influence the vertical structure of velocity and density, potentially damping or modifying interior-boundary-layer interactions. Furthermore, the melt‑rate parametrization is sensitive not only to vertical grid resolution but also to the depth over which heat and freshwater fluxes are instantaneously mixed, in our case, within the Losch layer. Consequently, higher vertical resolution produces a more strongly stratified top layer than coarser vertical resolution. Addressing this issue will require developing a parametrization that is independent of grid spacing and ensuring that the region influenced by meltwater is likewise grid independent. By prescribing constant diffusivity and viscosity, the model is unable to represent the spatial and temporal variability of turbulence and mixing along the channel flanks, which may result in an underestimation of the thermal driving, friction velocity, and melt rates in the presence of a channel.
+
+The findings in this study highlight that coarse models that neglect channels and the ice-shelf slope will have a persistent bias in their melt rates. Therefore, to improve such simulations, the development of physically based parameterizations focusing on incorporating the leading order mechanisms controlling the melt rates into regional and climate models, i.e., the small-scale ice-shelf geometry, rather than the asymmetry of the flanks, is essential to improve projections of ice-shelf melt and its contribution to ice-sheet mass loss and sea-level rise.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% DATA SECTION and ACKNOWLEDGMENTS
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Open Research Section}
+The idealized model configuration of the model is described and publicly available via \url{https://github.com/josuemtzmo/ISOBLJ} and the Zenodo repository \url{https://doi.org/10.5281/zenodo.19471769} \citep{Martinez_ISOBLJ_2026}.
+All analyses and figures in this manuscript are reproducible via Jupyter notebooks, and instructions can be found in the GitHub and Zenodo archive \texttt{ISOBLJ\_vert\_res} via \url{https://github.com/josuemtzmo/ISOBLJ\_vert\_res} and \url{https://github.com/josuemtzmo/ISOBLJ\_vert\_res} \citep{Martinez_ISOBLJ_manuscript_2026}.
+
+
+\acknowledgments
+We thank contributions from the wider BAS ISOBL Group and SUNSET members for continued discussion and input throughout, including Pete Davis, Pierre Dutrieux, Josephine Anselin, Yixi Zheng, and Keith Nicholls. This research was funded by the SUNSET project (NERC Grant NE/X014061/1).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% REFERENCES and BIBLIOGRAPHY
+%
+% \bibliography{<name of your .bib file>} don't specify the file extension
+% don't specify bibliographystyle
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliography{biblio.bib}
+
+\newpage
+\section*{Supplementary Information}
+
+\renewcommand\thefigure{S.\arabic{figure}}
+\setcounter{figure}{0}
+
+\begin{figure}[h!]
+      \includegraphics[width=1\linewidth]{./SFig_1_PIG_slope_2024.png}
+      \caption{PIG ice base slopes from 2024. The black solid line shows the 2011 MEaSUREs grounding line.}
+      \label{fig:Sfig1}
+\end{figure}
+
+\begin{figure}
+      \includegraphics[width=1\linewidth]{./SFig_2_advection_visc.png}
+      \caption{Time-mean and $x$-direction averages of the $v$ momentum advection components for the $80\,\mathrm{m}$ channel simulation for two vertical viscosities: top row $\nu_v =2\times10^{-4}\,\mathrm{m^2s^{-1}}$ and bottom row $\nu_v =1\times10^{-3}\,\mathrm{m^2s^{-1}}$. a and e $x$ component, b and f $y$ component, c and g $z$ component, and d and h full advection term.}
+      \label{fig:Sfig2}
+\end{figure}
+
+
+\begin{figure}
+      \includegraphics[width=1\linewidth]{./SFig_3_meltrate_us_visc.pdf}
+      \caption{Snapshot of the melt rate, friction velocity on the 45th day of simulation at the ice shelf interface for the $80\,\mathrm{m}$ channel depths at $2\,\mathrm{m}$ vertical resolution for two different vertical viscosity; a and c $\nu_v = 2\times10^{-4}\,\mathrm{m^2s^{-1}}$ and b and d $\nu_v = 1\times10^{-3}\,\mathrm{m^2s^{-1}}$). a and b melt rates ($\overline{m}$), c and d friction velocity ($\overline{U^*}$). Dashed line shows the channel apex and dotted line shows the flanks of the channel ($1.2\,\mathrm{km}$ to either side of the channel apex).}
+      \label{fig:SfigXX}
+\end{figure}
+
+\begin{figure}
+      \includegraphics[width=1\linewidth]{./SFig_2_advection_c160m.pdf}
+      \caption{Time and domain averaged components of the $v$ momentum advection term in the Losch layer for the $160\,\mathrm{m}$ depth channel for $2\,\mathrm{m}$, $4\,\mathrm{m}$, and $8\,\mathrm{m}$ vertical resolutions: a) $x$ component, b) $y$ component, c) $z$ component, and d) full advection term. Note that full advection term (panel h) is multiplied by five to make the signal visible.}
+      \label{fig:Sfig3}
+\end{figure}
+
+\begin{figure}
+      \includegraphics[width=1\linewidth]{./Sfig_5_wT_slopes.pdf}
+      \caption{$X$-direction averages of the vertical heat flux for the a) $1^\circ$, b) $1.5^\circ$, and c) $2^\circ$ slopes for the $80\,\mathrm{m}$ channel depth at $2\,\mathrm{m}$ vertical resolution on the last day of simulation (45th day). Vertical-integrated and $x$-direction averages of the vertical heat fluxes for the different vertical resolutions are shown in panels d-f for the d) $1^\circ$, e) $1.5^\circ$, and f) $2^\circ$ slopes. Vertical-integrated spatially averages of the vertical heat fluxes dependence to different slopes is shown in panel g).}
+      \label{fig:Sfig5}
+\end{figure}
+
+\begin{figure}
+    \includegraphics[width=1\linewidth]{./SFig_6_thermal_forcing.pdf}
+    \caption{Melt rates, friction velocity, and thermal driving dependence on different restoring temperatures for different channel depths on the last day of simulation (45th day). a, d, and g) spatially averaged melt rates, b, e, and h) friction velocity, c, f, i) thermal driving for different channel depths. Each row corresponds to a different channel depth (no-channel, $80\,\mathrm{m}$, and $160\,\mathrm{m}$, respectively).}
+    \label{fig:Sfig6}
+\end{figure}
+
+\end{document}
